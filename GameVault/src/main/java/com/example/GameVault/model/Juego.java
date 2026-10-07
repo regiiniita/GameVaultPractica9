@@ -1,6 +1,5 @@
 package com.example.GameVault.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,10 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Juego {
-
     private Long id;
     private String titulo;
     private String descripcion;
     private String portadaUrl;
-
 }
