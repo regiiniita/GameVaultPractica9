@@ -1,7 +1,13 @@
 package com.example.GameVault.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "juegos")
 public class Juego {
@@ -18,25 +24,14 @@ public class Juego {
     @Column(name = "portada_url")
     private String portadaUrl;
 
-    public Juego() {
-    }
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
-    public Juego(Long id, String titulo, String descripcion, String portadaUrl) {
-        this.id = id;
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.portadaUrl = portadaUrl;
-    }
+    @Column(nullable = false)
+    private String categoria;
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    @Column
+    private Double precio;
 
-    public String getTitulo() { return titulo; }
-    public void setTitulo(String titulo) { this.titulo = titulo; }
-
-    public String getDescripcion() { return descripcion; }
-    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
-
-    public String getPortadaUrl() { return portadaUrl; }
-    public void setPortadaUrl(String portadaUrl) { this.portadaUrl = portadaUrl; }
 }
